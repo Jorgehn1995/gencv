@@ -1,0 +1,127 @@
+/* AI Button Styles */
+.v-btn.ai,
+.ai {
+  background: linear-gradient(135deg, #0a8f8f 0%, #059b7a 25%, #00c9b3 50%, #0aa1a8 75%, #00b8d4 100%) !important;
+  background-size: 200% 200% !important;
+  animation: gradientShift 4s ease infinite;
+  color: white !important;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  box-shadow: 0 8px 24px rgba(var(--v-theme-primary), 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.v-btn.ai:hover:not(:disabled),
+.ai:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(var(--v-theme-primary), 0.5);
+}
+
+.v-btn.ai:disabled,
+.ai:disabled {
+  opacity: 0.5;
+  box-shadow: none;
+}
+
+/* Landing Page Cards */
+.landing-card {
+  background: rgb(var(--v-theme-card)) !important;
+  border: 1px solid rgba(13, 183, 183, 0.15);
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.landing-card.bordered::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, rgb(var(--v-theme-primary)) 0%, rgb(var(--v-theme-secondary)) 100%);
+}
+
+.landing-card--hover {
+  transition: all 0.3s ease;
+}
+
+.landing-card--hover:hover {
+  transform: translateY(-8px);
+  border-color: rgb(var(--v-theme-primary));
+  box-shadow: 0 12px 24px rgba(13, 183, 183, 0.25);
+}
+
+/* Section Backgrounds */
+.section-bg-gradient {
+  background: linear-gradient(135deg, rgba(var(--v-theme-primary), 0.08) 0%, rgba(var(--v-theme-background), 0.05) 50%, rgba(var(--v-theme-on-surface), 0.03) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-bg-gradient-alt {
+  background: linear-gradient(135deg, rgba(var(--v-theme-primary), 0.03) 0%, rgba(var(--v-theme-background), 0.05) 100%);
+  position: relative;
+}
+
+/* Decorative Elements */
+.deco-circle-primary {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(13, 183, 183, 0.1) 0%, transparent 70%);
+}
+
+.deco-circle-accent {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(242, 195, 28, 0.08) 0%, transparent 70%);
+}
+
+/* Buttons */
+.btn-premium {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: none;
+  padding: 24px 32px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(13, 183, 183, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btn-premium:hover {
+  box-shadow: 0 6px 20px rgba(13, 183, 183, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Animations */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; filter: brightness(1); }
+  25% { background-position: 50% 100%; filter: brightness(1.08) saturate(1.1); }
+  50% { background-position: 100% 50%; filter: brightness(1.15) saturate(1.2); }
+  75% { background-position: 50% 0%; filter: brightness(1.08) saturate(1.1); }
+  100% { background-position: 0% 50%; filter: brightness(1); }
+}
+
+@keyframes floatUp {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.animate-float {
+  animation: floatUp 6s ease-in-out infinite;
+}
+
+/* Shadow Effects */
+.shadow-primary {
+  filter: drop-shadow(0 20px 40px rgba(13, 183, 183, 0.3));
+}
+
+.shadow-primary-sm {
+  box-shadow: 0 4px 12px rgba(13, 183, 183, 0.3);
+}
+
+.shadow-primary-lg {
+  box-shadow: 0 12px 32px rgba(13, 183, 183, 0.4);
+}

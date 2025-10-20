@@ -1,0 +1,19 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Instalar pdf-parse y mammoth para extracción de texto",
+			"type": "shell",
+			"command": "pnpm add pdf-parse mammoth",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Instalar tipos para pdf-parse y mammoth",
+			"type": "shell",
+			"command": "pnpm add -D @types/pdf-parse @types/mammoth",
+			"isBackground": false,
+			"group": "build"
+		}
+	]
+}

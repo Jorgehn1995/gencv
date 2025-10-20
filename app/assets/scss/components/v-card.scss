@@ -1,0 +1,59 @@
+// Variables de Vuetify 3
+$card-padding: var(--v-spacing-6, 2.5rem);
+$card-border-radius: var(--v-border-radius-lg, 0.625rem);
+
+.v-card {
+  border: 2px solid rgba(var(--v-theme-contrast), 0.1) !important;
+  padding-inline: $card-padding !important;
+
+  &-icon {
+    padding-top: $card-padding !important;
+
+    .v-avatar {
+      background-color: rgba(var(--v-theme-contrast), 0.1) !important;
+    }
+
+    .v-icon {
+      color: rgba(var(--v-theme-contrast), 0.8) !important;
+    }
+  }
+
+  &-title {
+    padding: $card-padding 0 0 !important;
+    font-family: Outfit, "Outfit Fallback: Arial";
+    font-size: 1.5rem;
+    font-weight: 600 !important;
+    line-height: 2rem;
+  }
+
+  &-subtitle {
+    padding: 0 0 0.5rem !important;
+    -webkit-line-clamp: unset !important;
+    white-space: normal !important;
+
+    
+  }
+
+  &-text {
+    padding: 1rem 0 0.75rem !important;
+  }
+
+  &-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.25rem;
+    padding: 0 0 $card-padding !important;
+  }
+}
+.bordered {
+  border: 2px solid rgba(var(--v-theme-contrast), 0.1) !important;
+}
+
+.v-btn {
+  text-transform: none !important;
+  border-radius: $card-border-radius !important;
+}
+.view-all {
+  word-wrap: break-word;
+  -webkit-line-clamp: unset !important;
+}

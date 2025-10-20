@@ -1,0 +1,22 @@
+.sonner-toast {
+	&.sonner-toast--success {
+		background-color: var(--v-theme-success) !important;
+		color: var(--v-theme-on-success) !important;
+	}
+	&.sonner-toast--error {
+		background-color: var(--v-theme-error) !important;
+		color: var(--v-theme-on-error) !important;
+	}
+	&.sonner-toast--warning {
+		background-color: var(--v-theme-warning) !important;
+		color: var(--v-theme-on-warning) !important;
+	}
+	&.sonner-toast--info {
+		background-color: var(--v-theme-info) !important;
+		color: var(--v-theme-on-info) !important;
+	}
+	&.sonner-toast--default {
+		background-color: var(--v-theme-surface) !important;
+		color: var(--v-theme-on-surface) !important;
+	}
+}

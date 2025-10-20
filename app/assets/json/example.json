@@ -1,0 +1,155 @@
+{
+  "meta": {
+    "version": 1,
+    "lastUpdated": "2025-10",
+    "locale": "es",
+    "template": "harvard-detailed"
+  },
+  "jobTarget": {
+    "role": "Programador Frontend",
+    "seniority": "junior",
+    "keywords": ["Vue.js", "TypeScript", "CI/CD", "Firebase", "REST APIs"],
+    "locationPreference": "Remoto - Guatemala",
+    "salaryRangeQ": { "min": 6000, "max": 9000 }
+  },
+  "personalInfo": {
+    "fullName": "Ana Gabriela López Castillo",
+    "title": "Desarrolladora Frontend Junior",
+    "email": "ana.lopez@example.com",
+    "phone": "+502 5555 1234",
+    "location": "Ciudad de Guatemala, Guatemala",
+    "linkedin": "https://www.linkedin.com/in/analopez",
+    "github": "https://github.com/analopez",
+    "website": "https://analo.dev"
+  },
+  "summary": "Frontend dev con enfoque en rendimiento y DX. Experiencia en Vue 3 + TypeScript, diseño accesible (WCAG) y CI/CD. Me motiva mejorar Core Web Vitals y la calidad del código.",
+  "highlights": [
+    {
+      "bullet": "Optimicé LCP y CLS en landing principal",
+      "impact": "mejorando LCP en 47% y reduciendo CLS a 0.03",
+      "link": "https://pagespeed.web.dev/report?url=https://analo.dev"
+    },
+    {
+      "bullet": "Automaticé pipeline CI/CD con GitHub Actions",
+      "impact": "disminuyendo el lead time en 35%"
+    },
+    {
+      "bullet": "Migré componentes a Composition API + TS",
+      "impact": "reduciendo bugs de tipado en 60%"
+    }
+  ],
+  "experience": [
+    {
+      "position": "Frontend Developer",
+      "company": "Edunova (SaaS EdTech)",
+      "location": "Remoto",
+      "startDate": "2024-03",
+      "endDate": null,
+      "tech": ["Vue 3", "TypeScript", "Pinia", "Vite", "Firebase Auth"],
+      "achievements": [
+        {
+          "action": "Implementé lazy loading, code splitting y prefetch",
+          "impact": "reduciendo TTI en 28%",
+          "metrics": { "tti": "-28%" },
+          "link": "https://github.com/edunova/app/pull/452"
+        },
+        {
+          "action": "Diseñé componentes accesibles (ARIA) y pruebas de snapshot",
+          "impact": "mejorando el puntaje de accesibilidad a 98",
+          "metrics": { "a11yScore": 98 }
+        },
+        {
+          "action": "Integré autenticación con Firebase y guards de ruta",
+          "impact": "disminuyendo incidencias de login en 40%"
+        }
+      ]
+    },
+    {
+      "position": "Becaria de Desarrollo",
+      "company": "TechLab Guatemala",
+      "location": "Ciudad de Guatemala",
+      "startDate": "2023-06",
+      "endDate": "2024-02",
+      "tech": ["JavaScript", "CSS Modules", "REST APIs"],
+      "achievements": [
+        {
+          "action": "Construí dashboard de métricas con filtros y paginación",
+          "impact": "acortando el tiempo de reporte semanal en 50%",
+          "metrics": { "reportTime": "-50%" }
+        }
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Kanbanify",
+      "role": "Frontend Lead",
+      "startDate": "2024-08",
+      "endDate": "2024-10",
+      "description": "App kanban con drag & drop y offline-first.",
+      "tech": ["Vue 3", "TypeScript", "IndexedDB", "Workbox"],
+      "repository": "https://github.com/analopez/kanbanify",
+      "demo": "https://kanbanify.dev",
+      "spotlight": true,
+      "achievements": [
+        {
+          "action": "Implementé estrategia offline-first y background sync",
+          "impact": "manteniendo la app usable con 80% de pérdida de conectividad"
+        }
+      ]
+    }
+  ],
+  "skills": {
+    "items": [
+      { "name": "Vue 3", "category": "framework", "proficiency": "advanced", "years": 2, "keywords": ["Composition API", "Pinia"] },
+      { "name": "TypeScript", "category": "language", "proficiency": "advanced", "years": 2 },
+      { "name": "JavaScript", "category": "language", "proficiency": "advanced", "years": 3 },
+      { "name": "HTML", "category": "language", "proficiency": "expert", "years": 4 },
+      { "name": "CSS", "category": "language", "proficiency": "expert", "years": 4, "keywords": ["Flexbox", "Grid"] },
+      { "name": "Firebase", "category": "cloud", "proficiency": "intermediate", "years": 2, "keywords": ["Auth", "Firestore", "Storage"] },
+      { "name": "CI/CD", "category": "methodology", "proficiency": "intermediate" },
+      { "name": "GitHub Actions", "category": "tool", "proficiency": "intermediate" }
+    ]
+  },
+  "certifications": [
+    {
+      "name": "AWS Certified Cloud Practitioner",
+      "issuer": "Amazon Web Services",
+      "date": "2025-05",
+      "credentialId": "ABCDEF-123456",
+      "url": "https://aws.amazon.com/verification"
+    }
+  ],
+  "education": [
+    {
+      "institution": "Universidad del Valle de Guatemala",
+      "degree": "Ingeniería en Ciencias de la Computación",
+      "location": "Guatemala",
+      "startDate": "2021-01",
+      "status": "En curso (7º semestre)",
+      "details": ["Estructuras de Datos", "Sistemas Operativos", "Redes"]
+    }
+  ],
+  "languages": [
+    { "name": "Español", "proficiency": "native" },
+    { "name": "Inglés", "proficiency": "advanced" }
+  ],
+  "awards": [
+    {
+      "name": "1er lugar Hackathon Web Performance",
+      "issuer": "UVG",
+      "date": "2024-10",
+      "description": "Optimización de Core Web Vitals en SPA."
+    }
+  ],
+  "volunteering": [
+    {
+      "organization": "Code4Guate",
+      "role": "Mentora",
+      "startDate": "2024-05",
+      "achievements": [
+        { "action": "Guié a 10 estudiantes en su primer proyecto Vue", "impact": "logrando su publicación en Netlify" }
+      ]
+    }
+  ]
+}
