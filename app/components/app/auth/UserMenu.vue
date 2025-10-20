@@ -25,18 +25,20 @@ const display = useDisplay();
         </v-btn>
       </template>
       <template #items>
-        <v-list>
+        <v-list bg-color="transparent">
           <v-list-item
             link
             title="Perfil"
             :to="{ name: 'user-profile' }"
             prepend-icon="mdi-account-circle"
+            rounded="lg"
           ></v-list-item>
           <v-list-item
             link
             :to="{ name: 'logout' }"
             title="Cerrar sesión"
             prepend-icon="mdi-logout"
+            rounded="lg"
           ></v-list-item>
         </v-list>
       </template>

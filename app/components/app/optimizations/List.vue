@@ -7,6 +7,7 @@ const props = defineProps<{
   optimizationId: string;
 }>();
 
+const {$toast} = useNuxtApp();
 const router = useRouter();
 const route = useRoute();
 const { getOptimizations, fetchOptimizations, isOptimizationsLoading } =
@@ -40,6 +41,10 @@ const filteredOptimizations = computed(() => {
 
 onMounted(async () => {
   await fetchOptimizations();
+  if (optimizations.value.length == 0) {
+    $toast.info("¡Crea tu primer Cv optimizado!");
+    router.push({ name: "optimizations-create" });
+  }
 });
 </script>
 <template>
@@ -75,10 +80,10 @@ onMounted(async () => {
       >
         <v-icon size="100" class="opacity-40">mdi-clipboard-outline</v-icon>
         <span class="text-body-1 opacity-80">
-          No se encontraron aplicaciones que coincidan con "{{ search }}"
+          No se encontraron Cv's optimizados que coincidan con "{{ search }}"
         </span>
       </v-sheet>
-      <v-row dense v-else>
+      <v-row dense v-else-if="!isLoading && filteredOptimizations.length > 0">
         <v-col
           cols="12"
           sm="6"
@@ -112,6 +117,16 @@ onMounted(async () => {
           </v-card>
         </v-col>
       </v-row>
+      <v-sheet
+        v-else
+        class="pa-10 rounded-lg d-flex flex-column align-center"
+        color="transparent"
+      >
+        <v-icon size="100" class="opacity-40">mdi-clipboard-outline</v-icon>
+        <span class="text-body-1 opacity-80">
+          No tienes Cv's optimizados aún. ¡Crea uno nuevo!
+        </span>
+      </v-sheet>
     </v-sheet>
   </v-sheet>
 </template>
