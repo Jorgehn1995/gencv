@@ -56,6 +56,8 @@ const scrollToAuth = () => {
               cols="12"
               md="6"
               class="text-center text-md-left d-flex justify-center flex-column"
+              order="2"
+              order-sm="1"
             >
               <div class="logo-container mb-8">
                 <v-img
@@ -88,14 +90,12 @@ const scrollToAuth = () => {
                 <v-icon end>mdi-arrow-right</v-icon>
               </v-btn>
             </v-col>
-            <v-col cols="12" md="6" class="d-flex justify-center align-center">
+            <v-col cols="12" md="6" class="d-flex justify-center align-center" order="1" order-sm="2">
               <div class="device-container animate-float">
                 <v-img
                   src="/device.png"
-                  width="600"
-                  height="300"
                   class="device-image shadow-primary rounded-lg"
-                  cover
+                  aspect-ratio="2"
                 />
               </div>
             </v-col>
@@ -215,9 +215,12 @@ const scrollToAuth = () => {
 .device-container {
   position: relative;
   z-index: 1;
+  width: 100%;
+  max-width: 600px;
 
   .device-image {
     border-radius: 8px;
+    width: 100%;
   }
 }
 
