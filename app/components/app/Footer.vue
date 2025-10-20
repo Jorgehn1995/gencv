@@ -114,12 +114,7 @@ const socialLinks = [
             © {{ currentYear }} ProCV. Todos los derechos reservados.
           </p>
         </v-col>
-        <v-col cols="12" md="6" class="text-center text-md-right">
-          <p class="powered-by text-disabled">
-            Powered by 
-            <span class="brand-highlight">Inteligencia Artificial</span>
-          </p>
-        </v-col>
+        
       </v-row>
     </v-container>
   </footer>
