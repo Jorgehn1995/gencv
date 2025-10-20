@@ -8,6 +8,8 @@ export default defineEventHandler((event) => {
     "http://localhost:3000",
     "http://localhost:4000",
     "http://127.0.0.1:3000",
+    "https://cv.lerniz.com",
+    host ? `https://${host}` : null,
   ].filter(Boolean);
 
   if (origin) {
