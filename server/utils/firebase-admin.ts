@@ -1,84 +1,103 @@
-import { initializeApp, cert, getApps, type App } from "firebase-admin/app";
+import {
+  initializeApp,
+  cert,
+  getApps,
+  type App,
+  applicationDefault,
+} from "firebase-admin/app";
 import { getAuth, type Auth } from "firebase-admin/auth";
 import { getStorage, type Storage } from "firebase-admin/storage";
 import { getFirestore, type Firestore } from "firebase-admin/firestore";
 
-let firebaseAdminApp: App | null = null;
-let firebaseAuth: Auth | null = null;
-let firebaseStorage: Storage | null = null;
-let firebaseFirestore: Firestore | null = null;
+let app: App | null = null;
+let auth: Auth | null = null;
+let storage: Storage | null = null;
+let db: Firestore | null = null;
+
+function normalizePem(v?: string | null) {
+  if (!v) return undefined;
+  let val = v.trim();
+
+  if (
+    (val.startsWith('"') && val.endsWith('"')) ||
+    (val.startsWith("'") && val.endsWith("'"))
+  ) {
+    val = val.slice(1, -1);
+  }
+
+  val = val.replace(/\r\n/g, "\n");
+
+  if (val.includes("\\n")) {
+    val = val.replace(/\\n/g, "\n");
+  }
+
+  return val;
+}
 
 export const initFirebaseAdmin = (): Auth => {
-  if (firebaseAuth) {
-    return firebaseAuth;
+  if (auth) return auth;
+  const existing = getApps();
+  if (existing.length) {
+    app = existing[0];
+  } else {
+    const projectId = process.env.FIREBASE_PROJECT_ID;
+    const clientEmail = process.env.FIREBASE_CLIENT_EMAIL;
+    const privateKey = normalizePem(process.env.FIREBASE_PRIVATE_KEY);
+    const storageBucket =
+      process.env.FIREBASE_STORAGE_BUCKET ||
+      (projectId ? `${projectId}.appspot.com` : undefined);
+
+    if (projectId && clientEmail && privateKey) {
+      app = initializeApp({
+        credential: cert({ projectId, clientEmail, privateKey }),
+        ...(storageBucket ? { storageBucket } : {}),
+      });
+    } else {
+      app = initializeApp({
+        credential: applicationDefault(),
+        ...(storageBucket ? { storageBucket } : {}),
+      });
+    }
   }
-  const existingApps = getApps();
-  if (existingApps.length > 0) {
-    firebaseAdminApp = existingApps[0];
-    firebaseAuth = getAuth(firebaseAdminApp);
-    return firebaseAuth;
-  }
-  const projectId = process.env.FIREBASE_PROJECT_ID;
-  const clientEmail = process.env.FIREBASE_CLIENT_EMAIL;
-  const privateKey = process.env.FIREBASE_PRIVATE_KEY;
-  const storageBucket =
-    process.env.FIREBASE_STORAGE_BUCKET || `${projectId}.appspot.com`;
-  if (!projectId || !clientEmail || !privateKey) {
-    throw new Error(
-      "Firebase Admin credentials are missing. Please set FIREBASE_PROJECT_ID, FIREBASE_CLIENT_EMAIL, and FIREBASE_PRIVATE_KEY environment variables."
-    );
-  }
-  try {
-    firebaseAdminApp = initializeApp({
-      credential: cert({
-        projectId,
-        clientEmail,
-        privateKey: privateKey.replace(/\n/g, "\n"),
-      }),
-      storageBucket: storageBucket,
-    });
-    firebaseAuth = getAuth(firebaseAdminApp);
-    firebaseStorage = getStorage(firebaseAdminApp);
-    firebaseFirestore = getFirestore(firebaseAdminApp);
-    return firebaseAuth;
-  } catch (error: any) {
-    throw error;
-  }
+  auth = getAuth(app!);
+  storage = getStorage(app!);
+  db = getFirestore(app!);
+  return auth!;
 };
 
 export const getFirebaseAuth = (): Auth => {
-  if (!firebaseAuth) {
+  if (!auth) {
     return initFirebaseAdmin();
   }
-  return firebaseAuth;
+  return auth;
 };
 
 export const getFirebaseStorage = (): Storage => {
-  if (!firebaseStorage) {
+  if (!storage) {
     initFirebaseAdmin();
   }
-  if (!firebaseStorage) {
+  if (!storage) {
     throw new Error("Firebase Storage is not initialized");
   }
-  return firebaseStorage;
+  return storage;
 };
 
 export const getFirebaseApp = (): App => {
-  if (!firebaseAdminApp) {
+  if (!app) {
     initFirebaseAdmin();
   }
-  if (!firebaseAdminApp) {
+  if (!app) {
     throw new Error("Firebase Admin App is not initialized");
   }
-  return firebaseAdminApp;
+  return app;
 };
 
 export const getFirebaseFirestore = (): Firestore => {
-  if (!firebaseFirestore) {
+  if (!db) {
     initFirebaseAdmin();
   }
-  if (!firebaseFirestore) {
+  if (!db) {
     throw new Error("Firebase Firestore is not initialized");
   }
-  return firebaseFirestore;
+  return db;
 };
